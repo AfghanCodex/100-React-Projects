@@ -22,16 +22,4 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-Watchlist.jsx
-Summary_Modal.jsx
-logo.jsx
-MainContent.jsx
-NavBar.jsx
-MovieList.jsx
-NumResult.jsx
-Search.jsx
-StarRating.jsx
-MovieList_item.jsx
-index.css
-Box.jsx
-WatchMovie_item.jsx
+ 

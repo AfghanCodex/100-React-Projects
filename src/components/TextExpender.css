@@ -1,0 +1,72 @@
+/* Main container */
+.text-expander {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 700px;
+  margin: 20px auto;
+  padding: 20px 24px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+}
+
+/* Text content */
+.text-expander__text {
+  margin: 0;
+  color: #374151;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+
+/* Show More / Show Less button */
+.text-expander__button {
+  display: inline-block;
+  margin-left: 5px;
+  padding: 5px 12px;
+  border: none;
+  border-radius: 6px;
+  background: #6366f1;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+/* Hover effect */
+.text-expander__button:hover {
+  background: #4f46e5;
+  transform: translateY(-1px);
+}
+
+/* Keyboard accessibility */
+.text-expander__button:focus-visible {
+  outline: 3px solid #a5b4fc;
+  outline-offset: 3px;
+}
+
+/* Mobile responsive design */
+@media (max-width: 600px) {
+  .text-expander {
+    margin: 12px auto;
+    padding: 16px;
+    border-radius: 10px;
+  }
+
+  .text-expander__text {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .text-expander__button {
+    padding: 5px 9px;
+    font-size: 12px;
+  }
+}

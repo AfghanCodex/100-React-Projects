@@ -11,6 +11,8 @@ import Summary_Modal from "./Summary_Modal";
 import WatchMovie_item from "./WatchMovie_item";
 import StarRating from "./StarRating";
 import TextExpender from "./TextExpender";
+import ParentTabbed from "./ParentTabbed";
+import Fetching from "../Data_Fetching/Fetching";
 
 const tempMovieData = [
   {
@@ -63,48 +65,38 @@ const average = (arr) =>
   arr.reduce((acc, cur, i, arr) => acc + cur / arr.length, 0);
 
 export default function App() {
-  // const [watched, setWatched] = useState(tempWatchedData);
+  const [watched, setWatched] = useState(tempWatchedData);
+  const [movies, setMovies] = useState([]);
 
-  // const avgImdbRating = average(watched.map((movie) => movie.imdbRating));
-  // const avgUserRating = average(watched.map((movie) => movie.userRating));
-  // const avgRuntime = average(watched.map((movie) => movie.runtime));
+  const [query, setQuery] = useState("");
+
+  const avgImdbRating = average(watched.map((movie) => movie.imdbRating));
+  const avgUserRating = average(watched.map((movie) => movie.userRating));
+  const avgRuntime = average(watched.map((movie) => movie.runtime));
 
   return (
-    // <>
-    //   <NavBar>
-    //     <Logo />
-    //     <Search />
-    //     <NumResult movie={tempMovieData} />
-    //   </NavBar>
+    <>
+      <NavBar>
+        <Logo />
+        <Search query={query} setQuery={setQuery} />
+        <NumResult movie={movies} />
+      </NavBar>
 
-    //   <MainContent>
-    //     <Box>
-    //       <MovieList tempMovieData={tempMovieData} />
-    //     </Box>
+      <MainContent>
+        <Box>
+          <MovieList movies={movies} setMovies={setMovies} query={query} />
+        </Box>
 
-    //     <Box>
-    //       <Summary_Modal
-    //         watched={watched}
-    //         avgImdbRating={avgImdbRating}
-    //         avgUserRating={avgUserRating}
-    //         avgRuntime={avgRuntime}
-    //       />
-    //       <WatchMovie_item watched={watched} />
-    //     </Box>
-    //   </MainContent>
-    // </>
-
-    // <>
-    //   <StarRating maxRating={5} />
-    //   <StarRating maxRating={10} />
-    // </>
-    <TextExpender>
-      <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. At blanditiis
-        consectetur perspiciatis nam culpa porro quas eaque officiis facere
-        repudiandae maiores nulla vitae deleniti, debitis quia iure laudantium
-        quibusdam? Reiciendis.
-      </p>
-    </TextExpender>
+        <Box>
+          <Summary_Modal
+            watched={watched}
+            avgImdbRating={avgImdbRating}
+            avgUserRating={avgUserRating}
+            avgRuntime={avgRuntime}
+          />
+          <WatchMovie_item watched={watched} />
+        </Box>
+      </MainContent>
+    </>
   );
 }
